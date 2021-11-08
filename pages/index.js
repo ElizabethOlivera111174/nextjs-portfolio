@@ -1,5 +1,5 @@
 import Layout from "../Component/Layout";
-import { skills, experiencia, proyectos } from "../profile";
+import { skills, experiencia, proyectos, Estudios } from "../profile";
 import Link from "next/link";
 const index= ()=> (
     <>
@@ -13,16 +13,11 @@ const index= ()=> (
                         <div className="col-md-4">
                             <img src="eli.png" alt="" className="img-fluid"/>
                         </div>
-                        <div className="col-md-4">
-                            <h1>Elizabeth Olivera</h1>
+                        <div className="col-md-8">
+                            <h1>Elizabeth Olivera Gutierrez</h1>
                             <h3>FullStack Developer</h3>
-                            <p>Dale</p>
-                            <a href="">Contrateme</a>
-                        </div>
-                        <div className="col-md-4">
-                            <div><img src="https://img.icons8.com/cute-clipart/48/000000/github.png"/><span className="py-2"><Link href="/"><a> Github </a></Link></span></div>
-                            <div><img src="https://img.icons8.com/color/48/000000/gmail--v1.png"/><Link href="/"><a> E-mail </a></Link></div>
-                            <div><img src="https://img.icons8.com/external-justicon-flat-justicon/48/000000/external-linkedin-social-media-justicon-flat-justicon.png"/><Link href="/"><a> Likedin </a></Link></div>
+                            <p>Programadora web con trayectoria en el desarrollo de web api, api rest, asp .net, desarrollo fulstack .net, desarrollo de paginas web con c# y rect. Recientemente he tenido el privilegio de formar parte de Alkemi dodne participe en la creación de una api para la web de la Ong somos mas, la cual realizamos éxito, en el cual adquiri experiencia en el desarrollo, trabajo con la metodologia scrum e interaccion con colegas programadores. Busco formar parte de una empresa o proyecto que lleve al sigiente nivel mi capacidad creativa, aportando mis amplios conocimientos de Programacion.</p>
+                            <a href="/github">Contacteme</a>
                         </div>
                     </div>
             </div>
@@ -45,26 +40,39 @@ const index= ()=> (
                     </div>
                  </div>
             </div>
+
             <div className="col-md-8">
                 <div className="card bg-light">
                     <div className="card-body">
-                        <h1>Experiencia</h1>
+                        <h1>Estudios</h1>
                         <ul> 
                             {
-                                experiencia.map(({titulo,desde,hasta,descripcion}, i)=>(
+                                Estudios.map(({titulo,desde,hasta,descripcion}, i)=>(
                                     <li key={i}>
                                         <h3>{titulo}</h3>
                                         <h5>{desde} - {hasta}</h5>
-                                        <p>{descripcion}</p>    
+                                        <p>{descripcion}</p> 
+                                    </li>
+                                ))  
+                            }
+                        </ul>
+                        <h1>Experiencia</h1>
+                        <ul> 
+                            {
+                                experiencia.map(({titulo,desde,hasta,descripcion,referencias,tel}, i)=>(
+                                    <li key={i}>
+                                        <h3>{titulo}</h3>
+                                        <h5>{desde} - {hasta}</h5>
+                                        <p>{descripcion}</p> 
+                                        <p>{referencias}</p>  
+                                        <p>{tel}</p>    
                                     </li>
                                 ))
                             }
                         </ul>
                     </div>
                 </div>
-
             </div>
-           
         </div>
          {/** Second Portfolio */}
          <div className="col-md-12">
@@ -74,7 +82,7 @@ const index= ()=> (
                             <h1 className="text-center text-light">Portafolio</h1>
                         </div>
                         {
-                            proyectos.map(({nombre,descripcion,imagen}, i)=>(
+                            proyectos.map(({nombre,descripcion,imagen,repositorio}, i)=>(
                                 <div className="col-md-4  py-2" key={i}>
                                     <div className="card h-100">
                                         <div className="overflow">
@@ -84,6 +92,7 @@ const index= ()=> (
                                         <div className="card-body">
                                             <h1>{nombre}</h1> 
                                             <p>{descripcion}</p>
+                                            <a href={repositorio} target="_blank" >Repositorio de git hub</a><br/>
                                             <a href="#">Saber Mas</a>
                                         </div>
                                     </div>
@@ -93,7 +102,7 @@ const index= ()=> (
                     </div>
                     <div className="col-md-12">
                         <div className="text-center">
-                            <Link href="/portfolio">
+                            <Link href="/blog">
                                 <a className=" btn btn-outline-light">Mas Proyectos</a>
                             </Link>
                         </div>

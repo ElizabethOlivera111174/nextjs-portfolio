@@ -12,7 +12,7 @@ const Navbar= ()=>(
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link href="/blog">
-                            <a className="nav-link" aria-current="page">Blog</a>
+                            <a className="nav-link" aria-current="page">Mas Proyectos</a>
                         </Link>
                     </li>
                     <li className="nav-item">
